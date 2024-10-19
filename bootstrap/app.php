@@ -13,13 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-         // $middleware->append(AgeChecker::class);//global middleware way
-
-        //group middleware
-        $middleware->appendToGroup('checkers',[
-            AgeChecker::class,
-            CountryCheck::class
-        ]);
+         //
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
