@@ -24,6 +24,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Database Routes
+Route::get('/users',[DBController::class,'getUsers']);
+Route::get('/students',[StudentController::class,'getStudents']);
+// end
 
 //start
 //Making Routes Groups On the Basis Of Prefix
