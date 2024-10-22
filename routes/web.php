@@ -8,6 +8,8 @@ use App\Http\Controllers\GroupPrefixController;
 use App\Http\Controllers\GroupedController;
 use App\Http\Middleware\AgeChecker;
 use App\Http\Middleware\CountryCheck;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\EmpsController;
 //cmd to make view :- php artisan make:view name_of_view
 //cmd to make view inside a folder :- php artisan make:view name_of_folder.name_of_view
 
@@ -23,6 +25,14 @@ Route::get('/login',[UserController::class,'adminLogin']);
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/users',[UsersController::class,'getUsers']);
+
+//Query Builder Usage
+Route::get('/emps',[EmpsController::class,'queries']);
+Route::get('/add_emps',[EmpsController::class,'addEmp']);
+Route::get('/up_emps',[EmpsController::class,'updateEmp']);
+Route::get('/del_emps',[EmpsController::class,'delEmp']);
 
 //Database Routes
 Route::get('/users',[DBController::class,'getUsers']);
